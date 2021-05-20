@@ -3,16 +3,16 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('survivors', tbl => {
       tbl.increments('survivor_id')
-      tbl.text('survivor_name', 127)
+      tbl.text('survivor_name', 128)
         .unique()
         .notNullable()
     })
     .createTable('perks', tbl => {
       tbl.increments('perk_id')
-      tbl.text('perk_name', 127)
+      tbl.text('perk_name', 128)
         .unique()
         .notNullable()
-      tbl.text('perk_description', 255)
+      tbl.text('perk_description', 1024)
     })
     .createTable('unique-survivor-perks', tbl => {
       tbl.integer('survivor_id')
