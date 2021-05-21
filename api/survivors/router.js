@@ -19,5 +19,12 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 })
 
+router.post('/', (req, res, next) => {
+  Survivors.createSurvivor(req.body)
+    .then(survivor => {
+      res.status(201).json(survivor)
+    })
+    .catch(next);
+})
 
 module.exports = router;
